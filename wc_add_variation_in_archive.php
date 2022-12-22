@@ -32,9 +32,10 @@ function wav_add_variation() {
 	?>
 	<select>
 	<?php
+	$insert_defoult_option = false;
     foreach ($variations as $key => $variation_id) 
     { 
-		$insert_defoult_option = false;
+		
 		$insert_defoult_option_title = "мастера";
 		$insert_defoult_option_sub_title = "";
 		$variation_product  = new WC_Product_Variation($variation_id);
@@ -43,7 +44,7 @@ function wav_add_variation() {
 		$price = $variation_product->get_price();
 		if($insert_defoult_option == false){
 		?>
-			<option value="" selected>Выбрать <? print_r($insert_defoult_option_title)?></option>
+			<option value="" selected>Выбрать <? print_r($insert_defoult_option_title)?></option> <?php $insert_defoult_option = true;?>
 		<?php
 		}
 		?>
